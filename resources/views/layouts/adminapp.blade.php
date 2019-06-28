@@ -47,7 +47,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-              <a class="nav-link" href="/adminhome">
+              <a class="nav-link" href="/admin">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
             </li>
@@ -62,13 +62,13 @@
               </a>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                  <a href="/adminhome"><h6 class="collapse-header">Manage Profile</h6></a>
+                  <a href="/admin"><h6 class="collapse-header">Manage Profile</h6></a>
                 </div>
                 <div class="bg-white py-2 collapse-inner rounded">
-                  <a href="/adminhome/usermanage"><h6 class="collapse-header">Manage Users</h6>
+                  <a href="/admin/usermanage"><h6 class="collapse-header">Manage Users</h6>
                 </div>
                 <div class="bg-white py-2 collapse-inner rounded">
-                  <a href="/adminhome/content"><h6 class="collapse-header">Manage Content</h6>
+                  <a href="/admin/content"><h6 class="collapse-header">Manage Content</h6>
                 </div>
               </div>
             </li>
@@ -80,7 +80,7 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                   <a href="/register"><h6 class="collapse-header">Create User</h6>
-                  <a href="#"><h6 class="collapse-header">Create Content</h6>
+                  <a href="/admin/content/create"><h6 class="collapse-header">Create Content</h6>
                 </div>
               </div>
             </li>

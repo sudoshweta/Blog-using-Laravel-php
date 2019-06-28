@@ -19,10 +19,10 @@ Route::get('/contact', 'PagesController@contact');
 
 
 Route::get('/admin', 'ManageController@index');
-Route::get('/adminhome/dashboard', 'ManageController@dashboard');
-Route::get('/adminhome/usermanage', 'ManageController@usermanage');
-Route::get('/adminhome/gallary', 'GallaryController@gallary');
-Route::get('/adminhome/content', 'ContentController@index');
+Route::get('/admin/dashboard', 'ManageController@dashboard');
+Route::get('/admin/usermanage', 'ManageController@usermanage');
+Route::get('/admin/gallary', 'GallaryController@gallary');
+// Route::get('/admin/content', 'ContentController@index');
 
 
 
@@ -33,6 +33,7 @@ Route::get('/adminhome', function(){
 	return view('admin.adminhome');
 });
 Route::resource('posts', 'PostsController');
+Route::resource('admin/content', 'ContentController');
 
 Auth::routes();
 

@@ -6,8 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-              
-                    </div>
+                  </div>
                         <div><a href="/register" class="btn btn-primary" style="float: right;">Create Content</a>
                               
                               @if(count($contents) > 0)
@@ -21,8 +20,7 @@
                                       @foreach($contents as $content)
                                           <tr>
                                               <td>{{$content->titleid}}</td>
-                                              
-                                              <td>{{$content->title}} </td>
+                                              <td><a href="admin/content/{{$content->id}}">{{$content->title}}</a></td>
                                               <td>{{$content->description}}</td>
                                               
                                               <td><a href="" class="btn btn-primary" style="float: left;">Edit Content</a>
