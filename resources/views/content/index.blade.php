@@ -1,25 +1,49 @@
-@extends('layouts.app')
+@extends('layouts.adminapp')
 
-@section('content')
-	<br>
-	<h1>Post Here!</h1>
+@section('admincontent')
 
-	@if(count($posts) > 0)
+<div class="container">
+    <div class="row justify-content">
+        <div class="col-md-16">
+            <div class="card">
+                  </div>
+                        <div><a href="/admin/content/create" class="btn btn-primary" style="float: right;">Create Content</a>
+                              
+                              @if(count($contents) > 0)
+                                  <table class="table table-striped">
+                                      <tr>
+                                          <th>Content Name</th>
+                                          <th>Title</th>
+                                          <th>Description</th>
+                                          <th>Edit</th>
+                                          <th>Delete</th>
+                                      </tr>
+                                      @foreach($contents as $content)
+                                          <tr>
+                                              <td>{{$content->titleid}}</td>
+                                              <td><a href="/admin/content/{{$content->id}}">{{$content->title}}</a></td>
+                                              <td>{{$content->description}}</td>
+                                              
+                                              <td><a href="/admin/content/{{$content->id}}/edit" class="btn btn-primary" style="float: left;">Edit Content</a></td>
+                                              <td>
 
-		@foreach($posts as $post)
-			<div class='well'>
-				<h3><a href="/posts/{{$post->id}}">{{$post->title}} </a></h3>
-				<h6> {{$post->body}} </h6>
-				<small>Written on {{$post->created_at}}</small>
-				<br>
-				<br>
-			</div>
-		@endforeach
-		{{$posts->links()}}
-
-	@else
-		<p>No Post Found</p>
-
-	@endif
-
+                                              {!!Form::open(['action' => ['ContentController@destroy', $content->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                              {{Form::hidden('_method', 'DELETE')}}
+                                              {{Form::submit('Delete', ['class' => 'btn btn-danger' ])}}
+                                              {!!Form::close()!!}
+                                            
+                                            </td>
+                                          </tr>
+                                      @endforeach
+                                  </table>
+                              @else
+                                  <p>You have no Content</p>
+                              @endif
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

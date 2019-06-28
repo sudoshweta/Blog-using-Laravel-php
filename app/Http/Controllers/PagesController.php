@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\data;
+use DB;
 
 class PagesController extends Controller
 {
@@ -19,8 +21,11 @@ class PagesController extends Controller
     }
     public function about()
     {
-        $title = "About Us Page";
-    	return view('pages.about')->with('title', $title);
+        
+        $about_one = DB::table('data')->where('titleid', 'about_one')->first();
+        
+    	return view('pages.about')->with('about_one', $about_one);
+
     }
     public function policy()
     {

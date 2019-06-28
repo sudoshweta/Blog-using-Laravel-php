@@ -35,11 +35,9 @@
 </head>
 
 <body>
-
 <div class="container">
-  <div>
-    <div>
-      <ul class="navbar-nav bg-gradient-primary sidebar sidebar accordion" id="accordionSidebar">
+  <div class="col-md-4">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar accordion" id="accordionSidebar">
             <hr>
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html"></a>
             <hr class="sidebar-divider my-0">
@@ -90,20 +88,15 @@
                 <i class="fas fa-fw fa-table"></i>
                 <span>Gallary</span></a>
             </li>
-          </ul>
-      </div>
-    </div>
-       
-  </div>
-
-
-    <div id="adminapp">
+  </ul>       
+</div>
+<div id="adminapp" >
       @include('inc.messages')
 
-
-        <div class="container">
+        <div class="col-md-12">
             @yield('admincontent')
         </div>
-    </div>
+</div>
+</div>
 </body>
 </html>

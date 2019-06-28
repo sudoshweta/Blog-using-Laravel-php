@@ -18,9 +18,7 @@ class ContentController extends Controller
     public function index()
     {
         $contents = data::all();
-
-        
-        return view('admin.contentmanage')->with('contents', $contents);
+        return view('content.index')->with('contents', $contents);
     }
 
     /**
@@ -30,7 +28,7 @@ class ContentController extends Controller
      */
     public function create()
     {
-        //
+        return view('content.create');
     }
 
     /**
@@ -41,7 +39,23 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $this->validate($request,[
+            'titleid'=>'required',
+            'title'=>'required',
+            'description' => 'required',
+
+        ]);
+
+        $entry = new data();
+        $entry->titleid = $request->input('titleid');
+        $entry->title = $request->input('title');
+        $entry->description = $request->input('description');
+        // $post->user_id = auth()->user()->id;
+        $entry->save();
+
+        return redirect('/admin/content')->with('success', 'Content Created');
+
     }
 
     /**
@@ -52,8 +66,9 @@ class ContentController extends Controller
      */
     public function show($id)
     {
-        $content =  data::find($id);
-        return view('admin.contentshow')->with('content', $content);
+        $entry =  data::find($id);
+        return view('content.show')->with('entry', $entry);
+
     }
 
     /**
@@ -64,7 +79,8 @@ class ContentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $entry =  data::find($id);
+        return view('content.edit')->with('entry', $entry);
     }
 
     /**
@@ -76,7 +92,21 @@ class ContentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'titleid'=>'required',
+            'title'=>'required',
+            'description' => 'required',
+
+        ]);
+
+        $entry = data::find($id);
+        $entry->titleid = $request->input('titleid');
+        $entry->title = $request->input('title');
+        $entry->description = $request->input('description');
+        
+        $entry->save();
+
+        return redirect('/admin/content')->with('success', 'Content Updated');
     }
 
     /**
@@ -87,6 +117,8 @@ class ContentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $entry = data::find($id);
+         $entry->delete();
+        return redirect('/admin/content')->with('success', 'Content Removed');
     }
 }
