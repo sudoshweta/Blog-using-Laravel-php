@@ -17,7 +17,8 @@ Route::get('/policy', 'PagesController@policy');
 Route::get('/gallary', 'PagesController@gallary');
 Route::get('/contact', 'PagesController@contact');
 
-
+Route::get('/admin/register', 'ManageController@register');
+Route::get('/admin/login', 'ManageController@login');
 Route::get('/admin', 'ManageController@index');
 Route::get('/admin/dashboard', 'ManageController@dashboard');
 Route::get('/admin/usermanage', 'ManageController@usermanage');

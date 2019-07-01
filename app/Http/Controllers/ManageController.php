@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use DB;
 
+
+
 class ManageController extends Controller
 {
 	public function index()
@@ -36,6 +38,24 @@ class ManageController extends Controller
         );
 
     	return view('admin.contentmanage')->with($data);
+    }
+
+
+
+
+
+    public function register()
+    {
+        // $title = "Hey Admin!";
+        return view('admin.adminregister');
+    }
+
+
+
+    public function login()
+    {
+        // $title = "Hey Admin!";
+        return view('admin.adminlogin');
     }
     
 }
